@@ -1,22 +1,25 @@
 const router = require("express").Router();
-const services = require("../services/meliApiCall");
 const middlewareAuthor = require("../middleware/middlewareAuthor");
+const {
+  getProductsByQuery,
+  getProductCategoryById,
+  getProductById,
+  getProductDescriptionById,
+} = require("../services");
 
 const apiCall = (req, res, next) => {
   if (req.query && req.query.q) {
-    services.getProductsByQuery(req.query.q).then((result) => {
+    getProductsByQuery(req.query.q).then((result) => {
       res.data = result.data;
       next();
     });
   } else if (req.params && req.params.id) {
-    const productPromise = services.getProductById(req.params.id);
-    const productDescriptionPromise = services.getProductDescriptionById(
-      req.params.id
-    );
+    const productPromise = getProductById(req.params.id);
+    const productDescriptionPromise = getProductDescriptionById(req.params.id);
 
     Promise.all([productPromise, productDescriptionPromise]).then((result) => {
       const categoryId = result[0].data.category_id;
-      services.getProductCategoryById(categoryId).then((categories) => {
+      getProductCategoryById(categoryId).then((categories) => {
         res.data = Object.assign({}, result[0].data, result[1].data, {
           categories: categories && categories.data.path_from_root,
         });
