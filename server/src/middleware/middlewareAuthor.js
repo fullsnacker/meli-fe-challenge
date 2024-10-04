@@ -1,9 +1,9 @@
-const middlewareAuthor = (req, res, next) => {
-  res.author = {
-    name: "Juan",
-    lastname: "Garcia",
-  };
-  next();
+export const middlewareAuthor = (req, res, next) => {
+	res.author = {
+		name: "Juan",
+		lastname: "Garcia",
+	};
+	next();
 };
 
-module.exports = middlewareAuthor;
+export default {middlewareAuthor};

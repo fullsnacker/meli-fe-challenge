@@ -1,14 +1,14 @@
-const axios = require("axios").default;
+import {default as axios} from "axios";
 
 const getProductDescriptionById = async (id) => {
-  try {
-    return await axios.get(
-      `https://api.mercadolibre.com/items/${id}/description`
-    );
-  } catch (error) {
-    console.error(error);
-    return error;
-  }
+	try {
+		return await axios.get(
+			`https://api.mercadolibre.com/items/${id}/description`
+		);
+	} catch (error) {
+		console.error(error);
+		return error;
+	}
 };
 
-module.exports = getProductDescriptionById;
+export {getProductDescriptionById};

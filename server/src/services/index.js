@@ -1,11 +1,11 @@
-const getProductById = require("./getProductById");
-const getProductCategoryById = require("./getProductCategoryById");
-const getProductDescriptionById = require("./getProductDescriptionById");
-const getProductsByQuery = require("./getProductsByQuery");
+import {getProductById} from "./getProductById.js";
+import {getProductCategoryById} from "./getProductCategoryById.js";
+import {getProductDescriptionById} from "./getProductDescriptionById.js";
+import {getProductsByQuery} from "./getProductsByQuery.js";
 
-module.exports = {
-  getProductById,
-  getProductCategoryById,
-  getProductDescriptionById,
-  getProductsByQuery,
+export {
+	getProductById,
+	getProductCategoryById,
+	getProductDescriptionById,
+	getProductsByQuery,
 };

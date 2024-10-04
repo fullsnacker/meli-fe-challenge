@@ -1,5 +1,3 @@
-const findMostFrequentCategory = require("./findMostFrequentCategory");
+import {findMostFrequentCategory} from "./findMostFrequentCategory.js";
 
-module.exports = {
-  findMostFrequentCategory,
-};
+export {findMostFrequentCategory};

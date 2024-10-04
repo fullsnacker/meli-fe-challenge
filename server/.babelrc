@@ -1,0 +1,40 @@
+{
+    "presets": [
+        ["@babel/preset-env",{
+            "targets": {
+                // specify supported browsers (ES2015+ Features to transpile)
+                "node": "current"
+            },
+            // no module transpilation to CJS (!important)
+            "modules": false
+        }]
+
+    ],
+    "plugins": [
+        ["babel-plugin-module-resolver",
+            {
+                "root": ["."],
+                "extensions": [".js"],
+                // some alias
+                "alias":
+                {
+                    "@middlewares": "./src/middlewares",
+                    "@modules": "./src/modules",
+                    "@routes": "./src/routes"
+                }
+            }
+        ],
+        [
+            "@babel/plugin-transform-modules-commonjs",
+            {
+                "allowTopLevelThis": true
+            }
+        ],
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "regenerator": true
+            }
+        ]
+    ]
+}

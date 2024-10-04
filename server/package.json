@@ -1,12 +1,20 @@
 {
   "name": "server",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "node src/app.js",
-    "test": "jest --watchAll --verbose"
+    "clean": "rimraf dist",
+    "build": "babel src -d dist",
+    "dev": "NODE_ENV=development babel-node src/app.js",
+    "test": "jest --watchAll --verbose",
+    "serve": "NODE_ENV=production node dist/app.js",
+    "lint": "prettier --config .prettierrc --check \"src/**/*.js\"",
+    "lint:fix": "prettier --config .prettierrc --check \"src/**/*.js\" --write"
+ 
   },
   "dependencies": {
+    "module-alias": "^2.2.2",
     "axios": "^1.7.7",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -16,6 +24,14 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.13"
+    "@types/jest": "^29.5.13",
+    "rimraf": "^3.0.2",
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "prettier": "^2.2.1"
   }
 }
