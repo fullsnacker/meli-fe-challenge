@@ -7,8 +7,6 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-console.log(process.env.PORT);
-
 app.use("/api/items", itemsRoute);
 
 app.listen(PORT, () => {
