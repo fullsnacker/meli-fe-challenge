@@ -1,4 +1,4 @@
-const { getProductsByQuery } = require("../services");
+const { getProductsByQuery } = require("../src/services");
 
 const axios = require("axios").default;
 

@@ -1,4 +1,4 @@
-const { getProductById } = require("../services");
+const { getProductById } = require("../src/services");
 
 const axios = require("axios").default;
 

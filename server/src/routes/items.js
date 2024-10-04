@@ -1,5 +1,9 @@
 const router = require("express").Router();
+
 const middlewareAuthor = require("../middleware/middlewareAuthor");
+
+const { findMostFrequentCategory } = require("../utils");
+
 const {
   getProductsByQuery,
   getProductCategoryById,
@@ -11,6 +15,14 @@ const apiCall = (req, res, next) => {
   if (req.query && req.query.q) {
     getProductsByQuery(req.query.q).then((result) => {
       res.data = result.data;
+      // console.log(result.data.results[0].category_id);
+      // console.log(result.data.results[1].category_id);
+      // console.log(result.data.results[2].category_id);
+      // console.log(result.data.results[3].category_id);
+
+      const mostFrequentCategory = findMostFrequentCategory(result.data);
+
+      // console.log("MOST" + mostFrequentCategory);
       next();
     });
   } else if (req.params && req.params.id) {
@@ -23,6 +35,7 @@ const apiCall = (req, res, next) => {
         res.data = Object.assign({}, result[0].data, result[1].data, {
           categories: categories && categories.data.path_from_root,
         });
+        console.log(res.data.categories);
 
         next();
       });
