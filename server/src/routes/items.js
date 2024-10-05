@@ -59,8 +59,8 @@ const responseMiddleware = (req, res, next) => {
 		author: res.author,
 	};
 	if (req.query && req.query.q) {
-		mapping.items = res.data.results;
 		mapping.categories = res.data.categories;
+		mapping.items = res.data.results;
 	} else if (req.params && req.params.id) {
 		const itemCondition = res.data.attributes.find(
 			(item) => item.id === "ITEM_CONDITION"
@@ -79,9 +79,8 @@ const responseMiddleware = (req, res, next) => {
 			free_shipping: res.data.shipping && res.data.shipping.free_shipping,
 			sold_quantity: res.data.sold_quantity,
 			description: res.data.plain_text,
+			categories: res.data.categories,
 		};
-
-		mapping.categories = res.data.categories;
 	}
 
 	res.json(mapping);

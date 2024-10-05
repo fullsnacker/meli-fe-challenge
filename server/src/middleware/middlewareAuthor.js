@@ -1,6 +1,6 @@
 export const middlewareAuthor = (req, res, next) => {
 	res.author = {
-		name: "Juan",
+		name: "Juan Manuel",
 		lastname: "Garcia",
 	};
 	next();
