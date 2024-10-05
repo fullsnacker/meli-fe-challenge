@@ -1,4 +1,3 @@
-// import router from "express/Router";
 import express from "express";
 let router = express.Router();
 
@@ -12,18 +11,20 @@ import {
 	getProductDescriptionById,
 } from "../services/index.js";
 
-const apiCall = (req, res, next) => {
+const serviceCall = (req, res, next) => {
 	if (req.query && req.query.q) {
-		getProductsByQuery(req.query.q).then((result) => {
+		getProductsByQuery(req.query.q).then(async (result) => {
 			res.data = result.data;
-			// console.log(result.data.results[0].category_id);
-			// console.log(result.data.results[1].category_id);
-			// console.log(result.data.results[2].category_id);
-			// console.log(result.data.results[3].category_id);
 
-			const mostFrequentCategory = findMostFrequentCategory(result.data);
+			const mostFrequentCategory = findMostFrequentCategory(res.data);
 
-			// console.log("MOST" + mostFrequentCategory);
+			await getProductCategoryById(mostFrequentCategory).then(
+				(result) => {
+					res.data.categories = result.data.path_from_root;
+					next();
+				}
+			);
+
 			next();
 		});
 	} else if (req.params && req.params.id) {
@@ -45,7 +46,6 @@ const apiCall = (req, res, next) => {
 								categories && categories.data.path_from_root,
 						}
 					);
-					console.log(res.data.categories);
 
 					next();
 				});
@@ -60,7 +60,7 @@ const responseMiddleware = (req, res, next) => {
 	};
 	if (req.query && req.query.q) {
 		mapping.items = res.data.results;
-		mapping.categories = {};
+		mapping.categories = res.data.categories;
 	} else if (req.params && req.params.id) {
 		const itemCondition = res.data.attributes.find(
 			(item) => item.id === "ITEM_CONDITION"
@@ -87,8 +87,6 @@ const responseMiddleware = (req, res, next) => {
 	res.json(mapping);
 };
 
-router.get("/:id?", middlewareAuthor, apiCall, responseMiddleware);
-
-// module.exports = router;
+router.get("/:id?", middlewareAuthor, serviceCall, responseMiddleware);
 
 export default router;
