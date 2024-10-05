@@ -1,0 +1,341 @@
+
+/// *******************************
+/// Estilos de contenedor principal
+/// *******************************
+
+.main-results-container{
+  height: inherit;
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 20px;
+}
+
+
+/// ***************************
+/// Estilos de caja de búsqueda
+/// ***************************
+
+.query-input-container{
+  background-color: #ffe600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+}
+
+.query-input-form{
+  width: 100%;
+  max-width: 1200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.query-input-search{
+  width: 100%;
+  height: 20px;
+  padding: 10px 60px 10px 15px;
+  border: none;
+  font-size: 16px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+
+  &:focus{
+    outline: none;
+  }
+
+}
+
+.query-input-button{
+  border: none;
+  width: 46px;
+  height: 100%;
+  cursor: pointer;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.query-input-icon{
+  width: 20px;
+  height: 20px;
+}
+
+.meli-logo-asset{
+  background-color: transparent;
+  width: 65px;
+  margin-right: 30px;
+  height: 45px;
+}
+
+
+/// *****************************
+/// Estilos de lista de productos
+/// *****************************
+
+.products-content-container{
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.product-list-shipping{
+  display: flex;
+  align-items: center;
+}
+
+.shipping-icon-container{
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
+  background: #00a650;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .shipping-icon{
+    width: 15px;
+    height: 15px;
+  }
+
+}
+
+.products-content-card{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 2px;
+  flex-wrap: wrap;
+}
+
+.products-list-container{
+  width: 100%;
+  list-style-type: none;
+  display: grid;
+  padding: 0px 20px;
+  margin: 0px
+}
+
+.products-list-item{
+  border-bottom: thin solid #eee;
+  padding: 20px 0px;
+}
+
+.product-list-nav{
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.product-image-container{
+  display: flex;
+}
+
+.product-list-image{
+  width: 170px;
+  height: 170px;
+  object-fit: contain !important;
+}
+
+.product-list-info{
+  width: 100%;
+  padding: 5px 20px;
+}
+
+.product-list-price{
+  font-size: 24px;
+  align-items: baseline;
+  display: flex;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.product-list-title{
+  font-size: 20px;
+  color: #000;
+  overflow: hidden;
+  font-weight: 300;
+  max-width: 600px;
+}
+
+.product-list-subcontainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000;
+  font-weight: 300;
+  flex-wrap: wrap;
+}
+
+
+/// **********************************************
+/// Estilos de componente bradcrumbs de categorías
+/// **********************************************
+
+.breadcrumbs-main-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #999;
+  font-size: 14px;
+  flex-wrap: wrap;
+
+  .breadcrumbs-category-name {
+    margin: 0 5px 0 0;
+
+    &.last {
+      font-weight: bold;
+    }
+  }
+
+  .breadcrumbs-category-chevron {
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+
+/// *******************************
+/// Estilos del detalle del produto
+/// *******************************
+
+.product-detail-info-desc {
+
+  max-width: 770px;
+  padding: 30px;
+  flex-basis: 0%;
+  flex-grow: 4;
+  flex-shrink: 1;
+
+  .product-detail-image-container{
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 120px;
+    height: 400px;
+
+  }
+  
+  .product-detail-helper{
+
+    font-size: 26px;
+    font-weight: 400;
+    padding-bottom: 15px;
+
+  }
+
+  .product-detail-description{
+
+    color: #999;
+    margin-bottom: 0px;
+
+  }
+
+}
+
+.product-detail-info-buy{
+
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  flex-basis: 0%;
+  flex-grow: 2;
+  flex-shrink: 1;
+
+  .product-detail-condition{
+
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 12px;
+
+  }
+
+  .product-detail-title{
+
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+
+  }
+
+  .product-detail-price{
+
+    margin-bottom: 60px;
+    font-size: 40px;
+
+  }
+
+}
+
+.product-buy-button{
+
+  background-color: #3483fa;
+  border-color: transparent;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  padding: 0 24px;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+
+/// ***************************
+/// Estilos de spinner de carga
+/// ***************************
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.products-loader-spinner{
+
+  width: 50px;
+  height: 50px;
+  animation: spinner 2s linear infinite;
+  margin-bottom: 20px;
+
+}
+
+
+/// **************************************************
+/// Estilos de vista helper para mensajes de contenido
+/// **************************************************
+
+.helper-page-container{
+  
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.helper-page-icon{
+
+  width: 60px;
+  height: 60px;
+  margin-bottom: 30px;
+
+}
+
+.helper-page-message{
+
+  font-size: 30px;
+  font-weight: 300;
+
+}
