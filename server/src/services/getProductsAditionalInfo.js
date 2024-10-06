@@ -13,16 +13,16 @@ const getProductsAditionalInfo = async (items) => {
 
 				return {
 					...item,
-					// id: item.id,
-					// title: item.title,
-					// price: {
-					// 	currency: item.currency_id,
-					// 	amount: Math.floor(item.price),
-					// 	decimals: item.price % 1,
-					// },
-					// picture: picture,
-					// condition: item.condition,
-					// free_shipping: item.shipping.free_shipping,
+					id: item.id,
+					title: item.title,
+					price: {
+						currency: item.currency_id,
+						amount: Math.floor(item.price),
+						decimals: item.price % 1,
+					},
+					picture: picture,
+					condition: item.condition,
+					free_shipping: item.shipping.free_shipping,
 					seller_address:
 						itemDetails?.seller_address?.state?.name ?? "",
 				};
