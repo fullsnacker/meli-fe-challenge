@@ -221,8 +221,17 @@
     display: flex;
     justify-content: center;
     margin-bottom: 120px;
-    height: 400px;
+    height: 300px;
+    overflow: hidden; 
 
+  }
+
+  .product-detail-image{
+
+    max-width: 100%;        /* La imagen nunca será más ancha que el contenedor */
+    height: auto;           /* Mantiene la proporción de la imagen */
+    object-fit: contain;    /* Ajusta la imagen dentro del contenedor sin salirse */
+  
   }
   
   .product-detail-helper{

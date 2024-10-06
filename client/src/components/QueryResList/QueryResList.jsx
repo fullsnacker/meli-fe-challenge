@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import CategoryBreadcrumbs from "../CategoryBreadcrumbs/CategoryBreadcrumbs";
@@ -29,6 +29,7 @@ function QueryResList() {
         setCategories(response.data.categories);
 
         setItems(response.data.items);
+        console.log(response.data.items);
 
         setLoading(false);
       });
@@ -50,7 +51,7 @@ function QueryResList() {
                     <img
                       className="product-list-image"
                       src={item.picture}
-                      alt={item.title}
+                      alt={item.sanitized_title}
                     />
                   </div>
 
