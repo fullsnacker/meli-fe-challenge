@@ -9,6 +9,7 @@ import {
 	getProductCategoryById,
 	getProductById,
 	getProductDescriptionById,
+	getProductsAditionalInfo,
 } from "../services/index.js";
 
 const serviceCall = (req, res, next) => {
@@ -16,14 +17,23 @@ const serviceCall = (req, res, next) => {
 		getProductsByQuery(req.query.q).then(async (result) => {
 			res.data = result.data;
 
-			const mostFrequentCategory = findMostFrequentCategory(res.data);
+			if (res.data.results.length > 0) {
+				const mostFrequentCategory = findMostFrequentCategory(res.data);
 
-			await getProductCategoryById(mostFrequentCategory).then(
-				(result) => {
-					res.data.categories = result.data.path_from_root;
-					next();
-				}
-			);
+				await Promise.all([
+					getProductCategoryById(mostFrequentCategory).then(
+						(result) => {
+							res.data.categories = result.data.path_from_root;
+						}
+					),
+
+					getProductsAditionalInfo(res.data.results).then(
+						(result) => {
+							res.data.results = result;
+						}
+					),
+				]);
+			}
 
 			next();
 		});
