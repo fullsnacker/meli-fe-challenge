@@ -48,14 +48,6 @@ export const ProductDetail = () => {
                 loading="lazy"
               />
             </div>
-
-            <h2 className="product-detail-helper">Descripción del producto</h2>
-
-            <p className="product-detail-description">
-              {product.description !== ""
-                ? product.description
-                : "* Descripción no disponible *"}
-            </p>
           </div>
 
           <div className="product-detail-info-buy">
@@ -70,6 +62,15 @@ export const ProductDetail = () => {
             </p>
 
             <button className="product-buy-button">Comprar</button>
+          </div>
+          <div className="product-description-container">
+            {" "}
+            <h2 className="product-detail-helper">Descripción del producto</h2>
+            <p className="product-detail-description">
+              {product.description !== ""
+                ? product.description
+                : "* Descripción no disponible *"}
+            </p>
           </div>
         </div>
       )}

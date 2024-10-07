@@ -32,7 +32,6 @@ export const QueryResList = () => {
         setItems(response.data.items);
 
         setLoading(false);
-        console.log(response);
       });
   }, [query]);
 

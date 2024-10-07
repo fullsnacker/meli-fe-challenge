@@ -215,30 +215,61 @@
   flex-basis: 0%;
   flex-grow: 4;
   flex-shrink: 1;
+  
 
   .product-detail-image-container{
 
     display: flex;
     justify-content: center;
     margin-bottom: 120px;
-    height: 300px;
     overflow: hidden; 
+    height: 300px;
+    width: 680px;
 
   }
-
+  
   .product-detail-image{
 
-    max-width: 100%;        /* La imagen nunca será más ancha que el contenedor */
-    height: auto;           /* Mantiene la proporción de la imagen */
-    object-fit: contain;    /* Ajusta la imagen dentro del contenedor sin salirse */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
   
   }
   
+  
+
+  // @media (max-width: 768px) {
+  //   .product-detail-description {
+  //     color: red;
+  //     font-size: 16px;
+  //     word-wrap: break-word;
+  //     overflow-wrap: break-word;
+  //     // max-width: 50%;
+  //   }
+  // }
+
+}
+
+@media (min-width: 1200px) {
+  .product-description-container {
+    margin-right: 50%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .product-description-container {
+    margin-right: 25px;
+  }
+}
+
+.product-description-container{
+
   .product-detail-helper{
 
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 400;
-    padding-bottom: 15px;
+    padding-bottom: 32px;
+    margin-left: 32px;
 
   }
 
@@ -246,10 +277,23 @@
 
     color: #999;
     margin-bottom: 0px;
-
+    margin-left: 32px;
+    font-size: 16px;
+    padding-bottom: 32px;
   }
-
 }
+
+@media (min-width: 1200px) {
+  .product-detail-info-buy {
+    margin-right: 120px;
+  }
+}
+
+// @media (max-width: 1200px) {
+//   .product-description-container {
+//     margin-right: 25px;
+//   }
+// }
 
 .product-detail-info-buy{
 
@@ -259,27 +303,31 @@
   flex-basis: 0%;
   flex-grow: 2;
   flex-shrink: 1;
+ 
+  
+  
 
   .product-detail-condition{
 
     display: flex;
     flex-direction: row;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    margin-top: 32px;
 
   }
 
   .product-detail-title{
 
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
 
   }
 
   .product-detail-price{
 
-    margin-bottom: 60px;
-    font-size: 40px;
+    margin-bottom: 32px;
+    font-size: 46px;
 
   }
 
@@ -297,6 +345,7 @@
   padding: 0 24px;
   text-align: center;
   cursor: pointer;
+  margin-right: 32px;
 
 }
 

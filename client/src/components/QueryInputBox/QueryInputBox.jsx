@@ -22,7 +22,7 @@ export const QueryInputBox = () => {
           <img
             src={meliLogo}
             className="meli-logo-asset"
-            alt="Mecado Libre logo"
+            alt="MecadoLibre logo"
             href="/"
             loading="lazy"
           />

@@ -87,7 +87,6 @@ const responseMiddleware = (req, res, next) => {
 			picture: res.data.pictures.length && res.data.pictures[0],
 			condition: itemCondition,
 			free_shipping: res.data.shipping && res.data.shipping.free_shipping,
-			sold_quantity: res.data.sold_quantity,
 			description: res.data.plain_text,
 			categories: res.data.categories,
 		};
