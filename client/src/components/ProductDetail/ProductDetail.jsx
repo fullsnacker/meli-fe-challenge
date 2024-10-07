@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { CategoryBreadcrumbs } from "../CategoryBreadcrumbs/CategoryBreadcrumbs";
 import { formatter, Loader, NoResultsPage } from "../utils";
+import { Helmet } from "react-helmet";
 
 export const ProductDetail = () => {
   const { id } = useParams();
@@ -25,6 +26,11 @@ export const ProductDetail = () => {
 
   return (
     <div className="products-content-container">
+      <Helmet>
+        <title>Detalles de Artículo</title>
+        <meta name="description" content="This is a description for SEO" />
+        <meta name="keywords" content="React, SEO, JavaScript" />
+      </Helmet>
       {!product && !prodError && <Loader message={"Cargando producto"} />}
 
       {prodError && <NoResultsPage type={"error"} />}
@@ -39,6 +45,7 @@ export const ProductDetail = () => {
                 src={product.picture.url}
                 alt={product.title}
                 className="product-detail-image"
+                loading="lazy"
               />
             </div>
 

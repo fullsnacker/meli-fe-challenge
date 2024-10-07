@@ -9,6 +9,7 @@ export const NoResultsPage = (props) => {
           src={noResultsIcon}
           className="helper-page-icon"
           alt="No results icon"
+          loading="lazy"
         />
 
         <h1 className="helper-page-message">

@@ -20,6 +20,7 @@ export const CategoryBreadcrumbs = (props) => {
               src={chevronRight}
               className="breadcrumbs-category-chevron"
               alt="Chevron icon"
+              loading="lazy"
             />
           )}
         </React.Fragment>

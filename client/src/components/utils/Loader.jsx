@@ -9,6 +9,7 @@ export const Loader = (props) => {
           src={spinner}
           className="products-loader-spinner"
           alt="Spinner icon"
+          loading="lazy"
         />
 
         <h1 className="helper-page-message">{props.message}</h1>

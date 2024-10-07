@@ -6,6 +6,7 @@ import shippingIcon from "../../assets/truck.png";
 
 import { CategoryBreadcrumbs } from "../CategoryBreadcrumbs/CategoryBreadcrumbs";
 import { formatter, Loader, NoResultsPage } from "../utils";
+import { Helmet } from "react-helmet";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -31,11 +32,17 @@ export const QueryResList = () => {
         setItems(response.data.items);
 
         setLoading(false);
+        console.log(response);
       });
   }, [query]);
 
   return (
     <div className="products-content-container">
+      <Helmet>
+        <title>Resultado de Búsqueda</title>
+        <meta name="description" content="This is a description for SEO" />
+        <meta name="keywords" content="React, SEO, JavaScript" />
+      </Helmet>
       {loading && <Loader message={"Buscando productos"} />}
 
       {categories.length > 0 && <CategoryBreadcrumbs categories={categories} />}
@@ -51,6 +58,7 @@ export const QueryResList = () => {
                       className="product-list-image"
                       src={item.picture}
                       alt={item.sanitized_title}
+                      loading="lazy"
                     />
                   </div>
 
@@ -67,6 +75,7 @@ export const QueryResList = () => {
                               src={shippingIcon}
                               className="shipping-icon"
                               alt="Shipping truck logo"
+                              loading="lazy"
                             />
                           </div>
                         )}

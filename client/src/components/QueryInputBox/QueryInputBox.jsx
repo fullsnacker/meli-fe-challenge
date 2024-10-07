@@ -12,7 +12,7 @@ export const QueryInputBox = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/items?search=${query}`);
+    if (query.length > 0) navigate(`/items?search=${query}`);
   };
 
   return (
@@ -24,6 +24,7 @@ export const QueryInputBox = () => {
             className="meli-logo-asset"
             alt="Mecado Libre logo"
             href="/"
+            loading="lazy"
           />
         </a>
         <input
@@ -38,6 +39,7 @@ export const QueryInputBox = () => {
             src={searchIcon}
             className="query-input-icon"
             alt="Search icon"
+            loading="lazy"
           />
         </button>
       </form>
