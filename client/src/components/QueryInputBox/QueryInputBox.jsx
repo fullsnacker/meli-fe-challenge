@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
 import meliLogo from "../../assets/meli-cut-logo.png";
 import searchIcon from "../../assets/search-icon.png";
 
-function QueryInputBox() {
+export const QueryInputBox = () => {
   const [query, setQuery] = useState(
     new URLSearchParams(useLocation().search).get("search") || ""
   );
@@ -42,6 +43,4 @@ function QueryInputBox() {
       </form>
     </header>
   );
-}
-
-export default QueryInputBox;
+};

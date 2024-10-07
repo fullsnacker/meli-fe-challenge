@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
-import CategoryBreadcrumbs from "../CategoryBreadcrumbs/CategoryBreadcrumbs";
-import Loader from "../utils/Loader";
-import NoResultsPage from "../utils/NoResultsPage";
-import { formatter } from "../utils/Formatter";
+
 import shippingIcon from "../../assets/truck.png";
+
+import { CategoryBreadcrumbs } from "../CategoryBreadcrumbs/CategoryBreadcrumbs";
+import { formatter, Loader, NoResultsPage } from "../utils";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function QueryResList() {
+export const QueryResList = () => {
   const [items, setItems] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,6 @@ function QueryResList() {
         setCategories(response.data.categories);
 
         setItems(response.data.items);
-        console.log(response.data.items);
 
         setLoading(false);
       });
@@ -90,6 +89,4 @@ function QueryResList() {
       </div>
     </div>
   );
-}
-
-export default QueryResList;
+};

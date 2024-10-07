@@ -1,32 +1,26 @@
-import React from 'react';
-import noResultsIcon from "../../assets/no-results.png"
+import noResultsIcon from "../../assets/no-results.png";
+import PropTypes from "prop-types";
 
-function NoResultsPage(props) {
+export const NoResultsPage = (props) => {
+  return (
+    <div className="products-content-card">
+      <div className="helper-page-container">
+        <img
+          src={noResultsIcon}
+          className="helper-page-icon"
+          alt="No results icon"
+        />
 
-    return (
+        <h1 className="helper-page-message">
+          {props.type === "not_found"
+            ? "No se han encontrado resultados para ese término."
+            : "Producto no encontrado o no existente"}
+        </h1>
+      </div>
+    </div>
+  );
+};
 
-        <div className="products-content-card">
-
-            <div className="helper-page-container">
-
-                <img src={noResultsIcon} className="helper-page-icon" alt="No results icon" />
-
-                <h1 className="helper-page-message">
-
-                    {props.type === "not_found" ?
-                        "No se han encontrado resultados para ese término."
-                        :
-                        "Producto no encontrado o no existente"
-                    }
-
-                </h1>
-
-            </div>
-
-        </div>
-
-    );
-
-}
-
-export default NoResultsPage;
+NoResultsPage.propTypes = {
+  type: PropTypes.string,
+};

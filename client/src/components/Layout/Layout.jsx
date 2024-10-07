@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
-import QueryInputBox from "../QueryInputBox/QueryInputBox";
 
-function Layout() {
+import { QueryInputBox } from "../QueryInputBox/QueryInputBox";
+
+export const Layout = () => {
   return (
     <>
       <QueryInputBox />
@@ -10,6 +11,4 @@ function Layout() {
       </main>
     </>
   );
-}
-
-export default Layout;
+};

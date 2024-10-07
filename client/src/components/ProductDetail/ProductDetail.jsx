@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import CategoryBreadcrumbs from "../CategoryBreadcrumbs/CategoryBreadcrumbs";
-import Loader from "../utils/Loader";
-import NoResultsPage from "../utils/NoResultsPage";
-import { formatter } from "../utils/Formatter";
 
-function ProductDetail() {
+import { CategoryBreadcrumbs } from "../CategoryBreadcrumbs/CategoryBreadcrumbs";
+import { formatter, Loader, NoResultsPage } from "../utils";
+
+export const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [categories, setCategories] = useState([]);
@@ -15,10 +14,7 @@ function ProductDetail() {
   useEffect(() => {
     axios
       .get(`/api/items/${id}`)
-
       .then((response) => {
-        console.log(response.data.item);
-        console.log(response.data.item.categories);
         setProduct(response.data.item);
         setCategories(response.data.item.categories);
       })
@@ -72,6 +68,4 @@ function ProductDetail() {
       )}
     </div>
   );
-}
-
-export default ProductDetail;
+};
