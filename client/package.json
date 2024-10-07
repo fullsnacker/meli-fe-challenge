@@ -3,6 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "author": "Juan Manuel Garcia",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fullsnacker/meli-fe-challenge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fullsnacker/meli-fe-challenge/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

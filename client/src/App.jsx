@@ -7,7 +7,8 @@ import "./App.scss";
 import axios from "axios";
 
 function App() {
-  axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
+  axios.defaults.baseURL =
+    import.meta.env.VITE_BASE_URL || "http://localhost:3000";
   return (
     <Router>
       <Routes>

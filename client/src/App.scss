@@ -1,7 +1,5 @@
 
-/// *******************************
-/// Estilos de contenedor principal
-/// *******************************
+// Main Container
 
 .main-results-container{
   height: inherit;
@@ -12,10 +10,7 @@
   padding: 0 20px;
 }
 
-
-/// ***************************
-/// Estilos de caja de búsqueda
-/// ***************************
+// Input box
 
 .query-input-container{
   background-color: #ffe600;
@@ -75,9 +70,7 @@
 }
 
 
-/// *****************************
-/// Estilos de lista de productos
-/// *****************************
+/// Product list
 
 .products-content-container{
   width: 100%;
@@ -176,9 +169,7 @@
 }
 
 
-/// **********************************************
-/// Estilos de componente bradcrumbs de categorías
-/// **********************************************
+/// Breadcrumbs
 
 .breadcrumbs-main-container {
   display: flex;
@@ -203,10 +194,7 @@
   }
 }
 
-
-/// *******************************
-/// Estilos del detalle del produto
-/// *******************************
+/// Product details
 
 .product-detail-info-desc {
 
@@ -235,18 +223,6 @@
     object-fit: contain;
   
   }
-  
-  
-
-  // @media (max-width: 768px) {
-  //   .product-detail-description {
-  //     color: red;
-  //     font-size: 16px;
-  //     word-wrap: break-word;
-  //     overflow-wrap: break-word;
-  //     // max-width: 50%;
-  //   }
-  // }
 
 }
 
@@ -289,11 +265,6 @@
   }
 }
 
-// @media (max-width: 1200px) {
-//   .product-description-container {
-//     margin-right: 25px;
-//   }
-// }
 
 .product-detail-info-buy{
 
@@ -303,9 +274,6 @@
   flex-basis: 0%;
   flex-grow: 2;
   flex-shrink: 1;
- 
-  
-  
 
   .product-detail-condition{
 
@@ -349,10 +317,7 @@
 
 }
 
-
-/// ***************************
-/// Estilos de spinner de carga
-/// ***************************
+/// Loader
 
 @keyframes spinner {
   0% { transform: rotate(0deg); }
@@ -369,9 +334,7 @@
 }
 
 
-/// **************************************************
-/// Estilos de vista helper para mensajes de contenido
-/// **************************************************
+/// Helper
 
 .helper-page-container{
   
