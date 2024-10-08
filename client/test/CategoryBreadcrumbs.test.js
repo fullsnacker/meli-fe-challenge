@@ -9,7 +9,7 @@ describe("CategoryBreadcrumbs Component", () => {
     { name: "Laptops" },
   ];
 
-  test("renders category names", () => {
+  it("renders category names", () => {
     render(<CategoryBreadcrumbs categories={categories} />);
 
     categories.forEach((cat) => {
@@ -17,14 +17,14 @@ describe("CategoryBreadcrumbs Component", () => {
     });
   });
 
-  test("renders chevrons between categories", () => {
+  it("renders chevrons between categories", () => {
     render(<CategoryBreadcrumbs categories={categories} />);
 
     const chevrons = screen.getAllByAltText("Chevron icon");
     expect(chevrons).toHaveLength(2);
   });
 
-  test("does not render chevron after the last category", () => {
+  it("does not render chevron after the last category", () => {
     render(<CategoryBreadcrumbs categories={categories} />);
 
     const lastCategory = screen.getByText("Laptops");
@@ -34,7 +34,7 @@ describe("CategoryBreadcrumbs Component", () => {
     expect(chevrons.length).toBeLessThan(categories.length);
   });
 
-  test("applies 'last' class to the last category", () => {
+  it("applies 'last' class to the last category", () => {
     render(<CategoryBreadcrumbs categories={categories} />);
 
     const lastCategory = screen.getByText("Laptops");

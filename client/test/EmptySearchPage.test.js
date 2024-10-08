@@ -4,7 +4,7 @@ import { EmptySearchPage } from "../src/components/EmptySearchPage/EmptySearchPa
 import { Helmet } from "react-helmet";
 
 describe("EmptySearchPage Component", () => {
-  test("renders SEO meta tags using Helmet", () => {
+  it("renders SEO meta tags using Helmet", () => {
     render(<EmptySearchPage />);
 
     const helmet = Helmet.peek();
@@ -18,7 +18,7 @@ describe("EmptySearchPage Component", () => {
     );
   });
 
-  test("renders search icon and message", () => {
+  it("renders search icon and message", () => {
     render(<EmptySearchPage />);
 
     const image = screen.getByAltText("Empty search icon");
@@ -34,7 +34,7 @@ describe("EmptySearchPage Component", () => {
     expect(message).toBeInTheDocument();
   });
 
-  test("applies correct CSS classes", () => {
+  it("applies correct CSS classes", () => {
     render(<EmptySearchPage />);
 
     const container = screen

@@ -9,7 +9,7 @@ jest.mock("../../assets/meli-cut-logo.png", () => "meli-logo.png");
 jest.mock("../../assets/search-icon.png", () => "search-icon.png");
 
 describe("QueryInputBox Component", () => {
-  test("renders logo, input, and search button", () => {
+  it("renders logo, input, and search button", () => {
     render(
       <MemoryRouter>
         <QueryInputBox />
@@ -26,7 +26,7 @@ describe("QueryInputBox Component", () => {
     expect(button).toBeInTheDocument();
   });
 
-  test("updates query state on input change", () => {
+  it("updates query state on input change", () => {
     render(
       <MemoryRouter>
         <QueryInputBox />
@@ -39,7 +39,7 @@ describe("QueryInputBox Component", () => {
     expect(input.value).toBe("laptop");
   });
 
-  test("navigates to the correct URL on form submit", () => {
+  it("navigates to the correct URL on form submit", () => {
     const history = createMemoryHistory();
     render(
       <Router location={history.location} navigator={history}>
@@ -58,7 +58,7 @@ describe("QueryInputBox Component", () => {
     expect(history.location.search).toBe("?search=laptop");
   });
 
-  test("does not navigate if query is empty", () => {
+  it("does not navigate if query is empty", () => {
     const history = createMemoryHistory();
     render(
       <Router location={history.location} navigator={history}>

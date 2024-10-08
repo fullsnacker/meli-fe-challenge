@@ -37,7 +37,7 @@ describe("QueryResList Component", () => {
     axios.get.mockResolvedValue(mockResponse);
   });
 
-  test("renders loading indicator and fetches items", async () => {
+  it("renders loading indicator and fetches items", async () => {
     render(
       <MemoryRouter initialEntries={["/items?search=phone"]}>
         <Routes>
@@ -57,7 +57,7 @@ describe("QueryResList Component", () => {
     expect(screen.getByText("City B")).toBeInTheDocument();
   });
 
-  test("shows 'NoResultsPage' when no items are found", async () => {
+  it("shows 'NoResultsPage' when no items are found", async () => {
     const emptyResponse = {
       data: {
         categories: [],
@@ -82,7 +82,7 @@ describe("QueryResList Component", () => {
     });
   });
 
-  test("renders free shipping icon if applicable", async () => {
+  it("renders free shipping icon if applicable", async () => {
     render(
       <MemoryRouter initialEntries={["/items?search=phone"]}>
         <Routes>

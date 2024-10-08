@@ -19,7 +19,7 @@ describe("ProductDetail Component", () => {
     },
   };
 
-  test("renders loader while fetching product", () => {
+  it("renders loader while fetching product", () => {
     axios.get.mockImplementationOnce(() => new Promise(() => {}));
 
     render(
@@ -33,7 +33,7 @@ describe("ProductDetail Component", () => {
     expect(screen.getByText("Cargando producto")).toBeInTheDocument();
   });
 
-  test("renders product details correctly after successful fetch", async () => {
+  it("renders product details correctly after successful fetch", async () => {
     axios.get.mockResolvedValueOnce({ data: mockProduct });
 
     render(
@@ -57,7 +57,7 @@ describe("ProductDetail Component", () => {
     expect(image).toHaveAttribute("src", "/images/sample-product.jpg");
   });
 
-  test("renders breadcrumbs when categories are present", async () => {
+  it("renders breadcrumbs when categories are present", async () => {
     axios.get.mockResolvedValueOnce({ data: mockProduct });
 
     render(
@@ -74,7 +74,7 @@ describe("ProductDetail Component", () => {
     });
   });
 
-  test("renders NoResultsPage on fetch error", async () => {
+  it("renders NoResultsPage on fetch error", async () => {
     axios.get.mockRejectedValueOnce(new Error("Error al cargar"));
 
     render(
@@ -92,7 +92,7 @@ describe("ProductDetail Component", () => {
     });
   });
 
-  test("sets correct SEO metadata with Helmet", async () => {
+  it("sets correct SEO metadata with Helmet", async () => {
     axios.get.mockResolvedValueOnce({ data: mockProduct });
 
     render(

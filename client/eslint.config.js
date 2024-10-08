@@ -7,14 +7,19 @@ import reactRefresh from "eslint-plugin-react-refresh";
 export default [
   { ignores: ["dist"] },
   {
-    files: ["**/*.{js,jsx}"],
+    files: ["**/*.{cjs,js,jsx}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        myCustomGlobal: "readonly",
+        ...globals.jest,
+      },
       parserOptions: {
         ecmaVersion: "latest",
         ecmaFeatures: { jsx: true },
-        sourceType: "module",
+        VITE_BASE_URL: "module",
       },
     },
     settings: { react: { version: "18.3" } },
@@ -22,9 +27,6 @@ export default [
       react,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
-    },
-    env: {
-      jest: true,
     },
     rules: {
       ...js.configs.recommended.rules,
