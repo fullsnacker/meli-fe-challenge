@@ -24,6 +24,12 @@ const PORT = process.env.PORT || 8080;
 
 app.use("/api/items", itemsRoute);
 
+app.get("/", (req, res) => {
+	res.send("Server is running 🥳");
+});
+
 app.listen(PORT, () => {
 	console.log(`Listening on port ${PORT}`);
 });
+
+export {app};
