@@ -2,7 +2,6 @@
   "name": "server",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "author": "Juan Manuel Garcia",
   "repository": {
     "type": "git",
@@ -12,6 +11,7 @@
     "url": "https://github.com/fullsnacker/meli-fe-challenge/issues"
   },
   "scripts": {
+    "start": "node src/app.js",
     "clean": "rimraf dist",
     "build": "babel src -d dist",
     "dev": "NODE_ENV=development babel-node src/app.js",

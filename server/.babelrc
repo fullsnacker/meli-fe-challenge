@@ -2,10 +2,8 @@
     "presets": [
         ["@babel/preset-env",{
             "targets": {
-                // specify supported browsers (ES2015+ Features to transpile)
                 "node": "current"
             },
-            // no module transpilation to CJS (!important)
             "modules": false
         }]
 
