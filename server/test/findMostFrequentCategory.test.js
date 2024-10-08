@@ -1,4 +1,4 @@
-import {findMostFrequentCategory} from "../src/utils";
+import {findMostFrequentCategory} from "../api/utils";
 
 describe("testing of utils findMostFrequentCategory", () => {
 	it("should find most frequent category", () => {

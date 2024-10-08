@@ -16,9 +16,9 @@
                 // some alias
                 "alias":
                 {
-                    "@middlewares": "./src/middlewares",
-                    "@modules": "./src/modules",
-                    "@routes": "./src/routes"
+                    "@middlewares": "./api/middlewares",
+                    "@modules": "./api/modules",
+                    "@routes": "./api/routes"
                 }
             }
         ],

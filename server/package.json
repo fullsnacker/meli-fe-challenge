@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "private": true,
+  "type":"module",
   "author": "Juan Manuel Garcia",
   "repository": {
     "type": "git",
@@ -12,12 +13,12 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build": "babel src -d dist",
-    "dev": "NODE_ENV=development babel-node src/app.js",
+    "build": "babel api -d dist",
+    "dev": "NODE_ENV=development babel-node api/index.js",
     "test": "jest --watchAll --verbose",
-    "serve": "NODE_ENV=production node dist/app.js",
-    "lint": "prettier --config .prettierrc --check \"src/**/*.js\"",
-    "lint:fix": "prettier --config .prettierrc --check \"src/**/*.js\" --write"
+    "serve": "NODE_ENV=production node dist/index.js",
+    "lint": "prettier --config .prettierrc --check \"api/**/*.js\"",
+    "lint:fix": "prettier --config .prettierrc --check \"api/**/*.js\" --write"
   },
   "dependencies": {
     "axios": "^1.7.7",

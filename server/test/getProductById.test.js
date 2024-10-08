@@ -1,4 +1,4 @@
-const {getProductById} = require("../src/services");
+const {getProductById} = require("../api/services");
 
 import {default as axios} from "axios";
 
