@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import axios from "axios";
 import { Layout } from "./components/Layout/Layout";
 import { EmptySearchPage } from "./components/EmptySearchPage/EmptySearchPage";
 import { QueryResList } from "./components/QueryResList/QueryResList";
 import { ProductDetail } from "./components/ProductDetail/ProductDetail";
 import "./App.scss";
-import axios from "axios";
 
 function App() {
   axios.defaults.baseURL =

@@ -1,5 +1,5 @@
 import express from "express";
-let router = express.Router();
+const router = express.Router();
 
 import {findMostFrequentCategory} from "../utils/index.js";
 import {middlewareAuthor} from "../middleware/middlewareAuthor.js";

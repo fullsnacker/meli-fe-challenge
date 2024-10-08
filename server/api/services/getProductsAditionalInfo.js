@@ -1,5 +1,9 @@
 import {getProductById} from "./index.js";
 
+/**
+ * Obtiene información adicional, como la dirección del vendedor
+ */
+
 const getProductsAditionalInfo = async (items) => {
 	try {
 		const aditionalInfo = await Promise.all(

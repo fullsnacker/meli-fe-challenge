@@ -10,7 +10,7 @@ describe("testing of service getProductsByQuery", () => {
 	});
 
 	it("should test result data", async () => {
-		await getProductsByQuery("iphone").then((result) => {
+		await getProductsByQuery("motorola").then((result) => {
 			expect(result.data.results.length).toBe(4);
 		});
 	});

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
 import meliLogo from "../../assets/meli-cut-logo.png";
 import searchIcon from "../../assets/search-icon.png";
 

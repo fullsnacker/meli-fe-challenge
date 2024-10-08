@@ -1,5 +1,5 @@
-import noResultsIcon from "../../assets/no-results.png";
 import PropTypes from "prop-types";
+import noResultsIcon from "../../assets/no-results.png";
 
 export const NoResultsPage = (props) => {
   return (

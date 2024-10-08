@@ -1,6 +1,6 @@
 import React from "react";
-import chevronRight from "../../assets/chevron-right.png";
 import PropTypes from "prop-types";
+import chevronRight from "../../assets/chevron-right.png";
 
 export const CategoryBreadcrumbs = (props) => {
   return (

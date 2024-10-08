@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import { Helmet } from "react-helmet";
 import { CategoryBreadcrumbs } from "../CategoryBreadcrumbs/CategoryBreadcrumbs";
 import { formatter, Loader, NoResultsPage } from "../utils";
-import { Helmet } from "react-helmet";
 
 export const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [categories, setCategories] = useState([]);
   const [prodError, setProdError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  /**
+   * Solicitudes al server y manejo de load
+   */
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`/api/items/${id}`)
       .then((response) => {
         setProduct(response.data.item);
         setCategories(response.data.item.categories);
+        setLoading(false);
       })
       .catch(() => {
         setProdError(true);
@@ -27,11 +32,19 @@ export const ProductDetail = () => {
   return (
     <div className="products-content-container">
       <Helmet>
-        <title>Detalles de Artículo</title>
-        <meta name="description" content="This is a description for SEO" />
-        <meta name="keywords" content="React, SEO, JavaScript" />
+        <title>Detalles de Producto</title>
+        <meta
+          name="description"
+          content="Página de detalles del producto seleccionado"
+        />
+        <meta
+          name="keywords"
+          content="React, SEO, JavaScript, Mercadolibre, Challenge"
+        />
       </Helmet>
-      {!product && !prodError && <Loader message={"Cargando producto"} />}
+      {!product && !prodError && loading && (
+        <Loader message={"Cargando producto"} />
+      )}
 
       {prodError && <NoResultsPage type={"error"} />}
 

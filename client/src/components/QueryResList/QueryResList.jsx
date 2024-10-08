@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
-
+import { Helmet } from "react-helmet";
 import shippingIcon from "../../assets/truck.png";
-
 import { CategoryBreadcrumbs } from "../CategoryBreadcrumbs/CategoryBreadcrumbs";
 import { formatter, Loader, NoResultsPage } from "../utils";
-import { Helmet } from "react-helmet";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -18,6 +16,9 @@ export const QueryResList = () => {
   const [loading, setLoading] = useState(false);
   const query = useQuery().get("search");
 
+  /**
+   * Solicitudes al server y manejo de load
+   */
   useEffect(() => {
     setLoading(true);
     setItems([]);
@@ -39,8 +40,11 @@ export const QueryResList = () => {
     <div className="products-content-container">
       <Helmet>
         <title>Resultado de Búsqueda</title>
-        <meta name="description" content="This is a description for SEO" />
-        <meta name="keywords" content="React, SEO, JavaScript" />
+        <meta name="description" content="Listado de productos encontrados" />
+        <meta
+          name="keywords"
+          content="React, SEO, JavaScript, Mercadolibre, Challenge"
+        />
       </Helmet>
       {loading && <Loader message={"Buscando productos"} />}
 

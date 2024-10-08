@@ -9,12 +9,12 @@ describe("EmptySearchPage Component", () => {
 
     const helmet = Helmet.peek();
 
-    expect(helmet.title).toBe("Búsqueda de Artículos");
+    expect(helmet.title).toBe("Búsqueda de Productos");
     expect(
       helmet.metaTags.find((tag) => tag.name === "description").content
-    ).toBe("This is a description for SEO");
+    ).toBe("Página en blanco para buscar productos");
     expect(helmet.metaTags.find((tag) => tag.name === "keywords").content).toBe(
-      "React, SEO, JavaScript"
+      "React, SEO, JavaScript, Mercadolibre, Challenge"
     );
   });
 

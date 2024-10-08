@@ -5,6 +5,10 @@ import itemsRoute from "./routes/items.js";
 
 const app = express();
 
+/**
+ * Manejo de CORS y configuraciones
+ */
+
 app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Origin", "*");
 	res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -20,12 +24,19 @@ app.use((req, res, next) => {
 	next();
 });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
+
+/**
+ * Reenvio todos los pedidos de /api/items* a la route items
+ */
 
 app.use("/api/items", itemsRoute);
 
+/**
+ * Prueba de servidor
+ */
 app.get("/", (req, res) => {
-	res.send("Server is running 🥳");
+	res.send("El servidor esta activo! 🥳");
 });
 
 app.listen(PORT, () => {

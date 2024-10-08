@@ -5,9 +5,15 @@ export const EmptySearchPage = () => {
   return (
     <div className="products-content-container">
       <Helmet>
-        <title>Búsqueda de Artículos</title>
-        <meta name="description" content="This is a description for SEO" />
-        <meta name="keywords" content="React, SEO, JavaScript" />
+        <title>Búsqueda de Productos</title>
+        <meta
+          name="description"
+          content="Página en blanco para buscar productos"
+        />
+        <meta
+          name="keywords"
+          content="React, SEO, JavaScript, Mercadolibre, Challenge"
+        />
       </Helmet>
       <div className="products-content-card">
         <div className="helper-page-container">

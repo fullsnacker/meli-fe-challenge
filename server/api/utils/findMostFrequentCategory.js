@@ -1,3 +1,7 @@
+/**
+ * Obtiene la categoria que mas aparecio entre los productos del listado de resultado
+ */
+
 const findMostFrequentCategory = (data) => {
 	const frequencyMap = {};
 

@@ -105,10 +105,10 @@ describe("ProductDetail Component", () => {
 
     await waitFor(() => {
       const helmet = Helmet.peek();
-      expect(helmet.title).toBe("Detalles de Artículo");
+      expect(helmet.title).toBe("Detalles de Producto");
       expect(
         helmet.metaTags.find((tag) => tag.name === "description").content
-      ).toBe("This is a description for SEO");
+      ).toBe("Página de detalles del producto seleccionado");
     });
   });
 });

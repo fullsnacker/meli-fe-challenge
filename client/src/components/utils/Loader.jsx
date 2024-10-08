@@ -1,5 +1,5 @@
-import spinner from "../../assets/spinner.png";
 import PropTypes from "prop-types";
+import spinner from "../../assets/spinner.png";
 
 export const Loader = (props) => {
   return (
