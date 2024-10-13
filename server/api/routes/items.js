@@ -69,8 +69,8 @@ const responseMiddleware = (req, res, next) => {
 		author: res.author,
 	};
 	if (req.query && req.query.q) {
-		mapping.categories = res.data.categories;
-		mapping.items = res.data.results;
+		mapping.categories = res.data.categories || [];
+		mapping.items = res.data.results || [];
 	} else if (req.params && req.params.id) {
 		const itemCondition = res.data.attributes.find(
 			(item) => item.id === "ITEM_CONDITION"
