@@ -10,9 +10,11 @@ const getProductsAditionalInfo = async (items) => {
 			items.map(async (item) => {
 				const itemDetailsResponse = await getProductById(item.id);
 				const itemDetails = itemDetailsResponse.data;
+				const itemDetail = itemDetails[0].body;
+
 				const picture =
-					itemDetails.pictures.length > 0
-						? itemDetails.pictures[0].url
+					itemDetail.pictures.length > 0
+						? itemDetail.pictures[0].url
 						: item.thumbnail;
 
 				return {
@@ -28,7 +30,7 @@ const getProductsAditionalInfo = async (items) => {
 					condition: item.condition,
 					free_shipping: item.shipping.free_shipping,
 					seller_address:
-						itemDetails?.seller_address?.state?.name ?? "",
+						itemDetail?.seller_address?.state?.name ?? "",
 				};
 			})
 		);

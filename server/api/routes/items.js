@@ -23,6 +23,7 @@ const serviceCall = (req, res, next) => {
 				await Promise.all([
 					getProductCategoryById(mostFrequentCategory).then(
 						(result) => {
+							console.log(result.data);
 							res.data.categories = result.data.path_from_root;
 						}
 					),
@@ -45,7 +46,7 @@ const serviceCall = (req, res, next) => {
 
 		Promise.all([productPromise, productDescriptionPromise]).then(
 			(result) => {
-				const categoryId = result[0].data.category_id;
+				const categoryId = result[0].data[0].body.category_id;
 				getProductCategoryById(categoryId).then((categories) => {
 					res.data = Object.assign(
 						{},
@@ -72,7 +73,7 @@ const responseMiddleware = (req, res, next) => {
 		mapping.categories = res.data.categories || [];
 		mapping.items = res.data.results || [];
 	} else if (req.params && req.params.id) {
-		const itemCondition = res.data.attributes.find(
+		const itemCondition = res.data[0].body.attributes.find(
 			(item) => item.id === "ITEM_CONDITION"
 		);
 
@@ -80,15 +81,19 @@ const responseMiddleware = (req, res, next) => {
 			id: res.data.id,
 			title: res.data.title,
 			price: {
-				currency: res.data.currency_id,
-				amount: res.data.price.toFixed(0),
+				currency: res.data[0].body.currency_id,
+				amount: res.data[0].body.price.toFixed(0),
 				decimals: res.data.price % 1,
 			},
-			picture: res.data.pictures.length && res.data.pictures[0],
+			picture:
+				res.data[0].body.pictures.length &&
+				res.data[0].body.pictures[0],
 			condition: itemCondition,
-			free_shipping: res.data.shipping && res.data.shipping.free_shipping,
-			description: res.data.plain_text,
-			categories: res.data.categories,
+			free_shipping:
+				res.data[0].body.shipping &&
+				res.data[0].body.shipping.free_shipping,
+			description: res.data[0].body.plain_text,
+			categories: res.data[0].body.categories,
 		};
 	}
 
